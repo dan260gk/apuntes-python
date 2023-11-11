@@ -1,0 +1,9 @@
+flask db init
+si no queda poner en la linea 47:
+from models import*
+flask db upgrade
+
+
+test
+localhost:5000/auth/registro
+{email:'correo@gmail.com',password:'1234'}

@@ -4,6 +4,9 @@ from database import db
 from encriptador import bcrypt
 from flask_migrate import Migrate
 from config import BaseConfig
+from routes.user import appuser
+
+
 app=Flask(__name__)
 app.config.from_object(BaseConfig)
 CORS(app)

@@ -1,4 +1,5 @@
 pip install jwt
+pip install pyjwt
 pip install flask
 pip install flask-migrate
 pip install flask-sqlalchemy

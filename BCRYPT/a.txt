@@ -1,0 +1,19 @@
+inicia en 0 ms
+1000 es un segundo
+20500 se apaga
+parpadeo
+21000 se enciende seg 1
+21500 se apaga
+22000 se enciende seg 2
+22500 se apaga
+23000 se enciende seg 3
+23500 se apaga
+amarillo
+24000 se enciende
+25500 se apaga
+rojo
+26000 se enciende
+27500 cambia a verde en el otro sentido
+reiniciar timer
+
+
