@@ -24,7 +24,7 @@ class User(db.Model):
         try:
             print('USER',user_id)
             payload={
-                'exp':datetime.datetime.utcnow()+datetime.timedelta(minutes=5),
+                'exp':datetime.datetime.utcnow()+datetime.timedelta(hours=5),
                 'iat':datetime.datetime.utcnow(),
                 'sub':user_id
             }

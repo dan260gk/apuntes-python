@@ -5,7 +5,8 @@ from flask import jsonify,request
 def obtenerInfo(token):
     if token:
         resp = User.decode_auth_token(token)
-        user=User.query.filter_by(id=resp).first()
+        print(resp)
+        user=User.query.filter_by(id=resp['sub']).first()
         if user:
             usuario={
                 'status':'success',
@@ -13,7 +14,7 @@ def obtenerInfo(token):
                     'user_id':user.id,
                     'email':user.email,
                     'admin':user.admin,
-                    'registered_on':user.registered.on
+                    'registered_on':user.registered_on
                 }
             }
             return usuario
@@ -37,7 +38,21 @@ def tokenCheck(f):
             print(info)
             if info['status']=='fail':
                 return jsonify({'message':'Token invalido'})
-        except:
+        except Exception as e:
+            print(e)
             return jsonify({'message':'Error'})
         return f(info['data'],*args,**kwargs)
     return verificar
+
+def verificar(token):
+        if not token:
+            return jsonify({'message':'Token no encontrado'})
+        try:
+            info = obtenerInfo(token)
+            print(info)
+            if info['status']=='fail':
+                return jsonify({'message':'Token invalido'})
+        except Exception as e:
+            print(e)
+            return jsonify({'message':'Error'})
+        return info

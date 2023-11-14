@@ -1,5 +1,5 @@
 flask db init
-si no queda poner en la linea 47:
+si no queda poner en la linea 47 del archivo env.py:
 from models import*
 flask db upgrade
 
