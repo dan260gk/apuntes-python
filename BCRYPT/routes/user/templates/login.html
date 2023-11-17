@@ -21,8 +21,10 @@
         const loginButton=document.querySelector('#login-btn')
         loginButton.addEventListener('click',(e)=>{
             e.preventDefault()
-            const email=document.querySelector('#email')
-            const password=document.querySelector('#password')
+            const email=document.querySelector('#email').value
+            const password=document.querySelector('#password').value
+
+            console.log(password)
 
             fetch('/login',{
                 method: 'POST',
@@ -35,10 +37,12 @@
                 })
 
             })
-        }).then(response=>response.json())
+        })
+        .then(response=>response.json())
         .then(data=>{
             localStorage.setItem('token',data.auth_token)
-            window.location.href='/main'
+            window.location.href='/main' 
+            console.log(data)
         })
     </script>
 </body>
